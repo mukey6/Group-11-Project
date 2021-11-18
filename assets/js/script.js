@@ -5,10 +5,22 @@ console.log(apir)
 fetch(apir).then(function(response){
     if (response.ok){
         return response.json()
-    }
+    } 
+})
+.then(function(data){
+    console.log("1st data ", data)
 })
 
 
 // RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
-// https://api.unsplash.com/search/photos?page=1&query=office&client_id=RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
-var imageApi = ""
+// 
+var imageApi = "https://api.unsplash.com/search/photos?page=1&query=office&client_id=RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w"
+console.log(imageApi)
+fetch(imageApi).then(function(response){
+    if(response.ok){
+        return response.json()
+    }
+})
+.then(function(data){
+    console.log('2nd data', data);
+})
