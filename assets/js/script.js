@@ -2,6 +2,8 @@
 var searchButton = document.querySelector("#search-btn")
 var result = document.querySelector("#result")
 let resultContainer = document.getElementById("result-container")
+let imageOne = document.getElementById("image-1")
+let imageTwo = document.getElementById("image-2")
 
 function searchRecipe(){
 let searchInput=$("#search-input").val()  
@@ -36,6 +38,7 @@ let searchInput=$("#search-input").val()
 }
 
 function searchedResult(data){
+    resultContainer.innerHTML=""
 let title = document.createElement("h4")
 title.innerText = data.hits[0].recipe.label
 resultContainer.appendChild(title)
@@ -47,7 +50,14 @@ ingredientList.innerText=data.hits[0].recipe.ingredientLines
 resultContainer.appendChild(ingredientLines)
 }
 
+function searchedImages(data2){
 
+imageOne.innerText = data2.results[0].urls.small
+// ("<img src'" + data2.results[0].urls.small + "'>")
+
+}
+
+// ("<img src='" + weatherIcon  + "'>")
 searchButton.addEventListener("click",searchRecipe )
 
 // RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
