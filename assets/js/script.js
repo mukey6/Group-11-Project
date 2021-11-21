@@ -41,19 +41,51 @@ function searchedResult(data){
     resultContainer.innerHTML=""
 let title = document.createElement("h4")
 title.innerText = data.hits[0].recipe.label
+title.setAttribute("class" ,"title")
 resultContainer.appendChild(title)
 
 let ingredientLines = document.createElement("ul")
 let ingredientList = document.createElement("li")
 ingredientLines.appendChild(ingredientList)
-ingredientList.innerText=data.hits[0].recipe.ingredientLines
+ingredientList.innerText=data.hits[0].recipe.ingredientLines 
 resultContainer.appendChild(ingredientLines)
+ingredientList.setAttribute("class" ,"ingredientList")
+
+let source = document.createElement("p")
+source.innerText = "Source: " + data.hits[0].recipe.source
+resultContainer.appendChild(source)
+
+let titleTwo = document.createElement("h4")
+titleTwo.innerText = data.hits[3].recipe.label
+titleTwo.setAttribute("class" ,"title")
+resultContainer.appendChild(titleTwo)
+
+let  ingredientLine = document.createElement("ul")
+let ingredientLists = document.createElement("li")
+ingredientLine.appendChild(ingredientLists)
+ingredientLists.innerText=data.hits[3].recipe.ingredientLines 
+resultContainer.appendChild(ingredientLine)
+ingredientLists.setAttribute("class" ,"ingredientList")
+
+
+let sources = document.createElement("p")
+sources.innerText = "Source: " + data.hits[3].recipe.source
+resultContainer.appendChild(sources)
 }
 
 function searchedImages(data2){
+    firstImage = data2.results[0].urls.small
+   
+    
+    imageOne.innerHTML=("<img src='" + firstImage  + "'>")
+  
 
-imageOne.innerText = data2.results[0].urls.small
-// ("<img src'" + data2.results[0].urls.small + "'>")
+secondImage = data2.results[1].urls.small
+console.log(imageOne )
+
+imageTwo.innerHTML=("<img src='" + secondImage  + "'>")
+console.log(imageTwo)
+
 
 }
 
