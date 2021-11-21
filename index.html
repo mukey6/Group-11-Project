@@ -13,29 +13,31 @@
 <header class="title has-background-link-dark has-text-white">Recipe Guide</header>
 
     <main class="container is-mobile">
-        <section class="row">
-            <input class="input is-normal" type="text" placeholder="Strawberry Banana Smoothie" id="search-input">
-             <button id="search-btn">Search</button>
+        <section class=" columns">
+            <div class="column field is-grouped is-grouped-centered">
+                <input class="input is-large is-rounded" type="text" placeholder="Strawberry Banana Smoothie" id="search-input">
+                 <button class="button is-primary is-large" id="search-btn">Search</button>
+            </div>
         </section>
-        <section class="row" id="result">
-            <h2>result:</h2>
-            <!--Result-->
-            <div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto perferendis sunt provident obcaecati repellat aut! Molestiae beatae doloremque mollitia ex eius quasi voluptates assumenda impedit, in fugiat recusandae, delectus nihil?</p>
+        <section class=" columns" id="result">
+            <div class="column" id="result-container">
+
             </div>
         </section>
 
-        <section class="row" id="images">
-            <h2>Images:</h2>
+        <section class=" columns" id="images">
+            <div class="column is-half" id="image-1">
+
+            </div>
             <!--image of the food-->
-            <div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt modi pariatur odit tempora iste, consectetur qui voluptatem minima vel repellat. Dolor sint est deleniti, reprehenderit molestiae blanditiis vel accusantium ea.</p>
+            <div class="column is-half" id="image-2">
+
             </div>
         </section>
 
     </main>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./assets/js/script.js"></script>
 </body>
 </html>

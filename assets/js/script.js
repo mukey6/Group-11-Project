@@ -1,11 +1,14 @@
 // b49c94e39bb5414b2d07ad05bd3ec5f2	
 var searchButton = document.querySelector("#search-btn")
-var searchInput = document.querySelector("#search-input")
 var result = document.querySelector("#result")
-
+let resultContainer = document.getElementById("result-container")
 
 function searchRecipe(){
-    var apir = "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=a2a764d9&app_key=b49c94e39bb5414b2d07ad05bd3ec5f2"
+let searchInput=$("#search-input").val()  
+  console.log(searchInput)
+
+
+    var apir = "https://api.edamam.com/api/recipes/v2?type=public&q="+searchInput+"&app_id=a2a764d9&app_key=b49c94e39bb5414b2d07ad05bd3ec5f2"
     console.log(apir)
     
     fetch(apir).then(function(response){
@@ -15,25 +18,37 @@ function searchRecipe(){
     })
     .then(function(data){
         console.log("1st data ", data)
-        
+        searchedResult(data)
     })
     
-    var imageApi = "https://api.unsplash.com/search/photos?page=1&query=chicken&client_id=RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w"
+    var imageApi = "https://api.unsplash.com/search/photos?page=1&query="+searchInput+"&client_id=RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w"
     console.log(imageApi)
     fetch(imageApi).then(function(response){
         if(response.ok){
             return response.json()
         }
     })
-    .then(function(data){
-        console.log('2nd data', data);
+    .then(function(data2){
+        console.log('2nd data', data2);
+        searchedImages(data2)
 
     })
 }
 
-// RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
-// 
+function searchedResult(data){
+let title = document.createElement("h4")
+title.innerText = data.hits[0].recipe.label
+resultContainer.appendChild(title)
 
+let ingredientLines = document.createElement("ul")
+let ingredientList = document.createElement("li")
+ingredientLines.appendChild(ingredientList)
+ingredientList.innerText=data.hits[0].recipe.ingredientLines
+resultContainer.appendChild(ingredientLines)
+}
 
 
 searchButton.addEventListener("click",searchRecipe )
+
+// RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
+// 
