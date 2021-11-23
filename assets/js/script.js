@@ -54,6 +54,10 @@ ingredientList.setAttribute("class" ,"ingredientList")
 let source = document.createElement("p")
 source.innerText = "Source: " + data.hits[0].recipe.source
 resultContainer.appendChild(source)
+var aTag = document.createElement('a')
+aTag.setAttribute('href', data.hits[3].recipe.url)
+aTag.innerHTML = data.hits[3].recipe.url
+resultContainer.appendChild(aTag)
 
 let titleTwo = document.createElement("h4")
 titleTwo.innerText = data.hits[3].recipe.label
@@ -67,10 +71,17 @@ ingredientLists.innerText=data.hits[3].recipe.ingredientLines
 resultContainer.appendChild(ingredientLine)
 ingredientLists.setAttribute("class" ,"ingredientList")
 
+let string = data.hits[3].recipe.ingredientLines
+ingredientLists = string.replace(", ", " ")
+// console.log(ingredientLists.split(","))
 
 let sources = document.createElement("p")
 sources.innerText = "Source: " + data.hits[3].recipe.source
 resultContainer.appendChild(sources)
+var aTag = document.createElement('a')
+aTag.setAttribute('href', data.hits[3].recipe.url)
+aTag.innerHTML = data.hits[3].recipe.url
+resultContainer.appendChild(aTag)
 }
 
 function searchedImages(data2){
