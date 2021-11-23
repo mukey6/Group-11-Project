@@ -45,19 +45,26 @@ title.setAttribute("class" ,"title")
 resultContainer.appendChild(title)
 
 let ingredientLines = document.createElement("ul")
-let ingredientList = document.createElement("li")
-ingredientLines.appendChild(ingredientList)
-ingredientList.innerText=data.hits[0].recipe.ingredientLines 
+
 resultContainer.appendChild(ingredientLines)
-ingredientList.setAttribute("class" ,"ingredientList")
+
+let lists = data.hits[0].recipe.ingredientLines
+for (let i = 0; i < lists.length; i++) {
+    let ingredientList = document.createElement("li")
+    ingredientList.setAttribute("class" ,"ingredientList")
+
+    ingredientLines.appendChild(ingredientList)
+    ingredientList.innerText= lists[i]
+}
 
 let source = document.createElement("p")
 source.innerText = "Source: " + data.hits[0].recipe.source
 resultContainer.appendChild(source)
 var aTag = document.createElement('a')
-aTag.setAttribute('href', data.hits[3].recipe.url)
+aTag.setAttribute('href', data.hits[0].recipe.url)
 aTag.innerHTML = data.hits[3].recipe.url
 resultContainer.appendChild(aTag)
+
 
 let titleTwo = document.createElement("h4")
 titleTwo.innerText = data.hits[3].recipe.label
@@ -65,15 +72,18 @@ titleTwo.setAttribute("class" ,"title")
 resultContainer.appendChild(titleTwo)
 
 let  ingredientLine = document.createElement("ul")
-let ingredientLists = document.createElement("li")
-ingredientLine.appendChild(ingredientLists)
-ingredientLists.innerText=data.hits[3].recipe.ingredientLines 
-resultContainer.appendChild(ingredientLine)
-ingredientLists.setAttribute("class" ,"ingredientList")
 
-let string = data.hits[3].recipe.ingredientLines
-ingredientLists = string.replace(", ", " ")
-// console.log(ingredientLists.split(","))
+resultContainer.appendChild(ingredientLine)
+
+let list = data.hits[3].recipe.ingredientLines
+for (let i = 0; i < list.length; i++) {
+    let ingredientLists = document.createElement("li")
+    ingredientLists.setAttribute("class" ,"ingredientList")
+
+    ingredientLine.appendChild(ingredientLists)
+    ingredientLists.innerText= list[i]
+
+}
 
 let sources = document.createElement("p")
 sources.innerText = "Source: " + data.hits[3].recipe.source
@@ -93,10 +103,7 @@ console.log(imageOne )
 imageTwo.innerHTML=("<img src='" + secondImage  + "'>")
 console.log(imageTwo)
 
-
 }
-
-// ("<img src='" + weatherIcon  + "'>")
 searchButton.addEventListener("click",searchRecipe )
 
 // RUQuxPjGR6Ilkox7XXVJeDgtrx5S3OXASTUxQRUKq3w
