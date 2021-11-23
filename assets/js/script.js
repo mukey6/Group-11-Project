@@ -74,12 +74,8 @@ resultContainer.appendChild(sources)
 }
 
 function searchedImages(data2){
-    firstImage = data2.results[0].urls.small
-   
-    
-    imageOne.innerHTML=("<img src='" + firstImage  + "'>")
-  
-
+firstImage = data2.results[0].urls.small
+imageOne.innerHTML=("<img src='" + firstImage  + "'>")
 secondImage = data2.results[1].urls.small
 console.log(imageOne )
 
