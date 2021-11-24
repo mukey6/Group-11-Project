@@ -16,5 +16,11 @@ SO THAT I can cook a delicious meal for myself and my family.
 HTML, CSS, JavaScript, and Bulma
 API's used: Edamam (for Recipes) and Unsplash (for photos)
 
+## Demo
+#### Main Page
+![Main_Page](/assets/images/Main_Page.png "Main Page")<br>
+#### Searched Ingredient
+![Main_Page](/assets/images/Search.png "Search")
+
 ## Deployed Application
 https://mollymontgomery.github.io/Group-11-Project/
